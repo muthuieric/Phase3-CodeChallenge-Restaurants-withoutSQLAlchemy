@@ -1,26 +1,25 @@
 class Customer:
-
     all_customers = []
 
     def __init__(self, given_name, family_name):
-        self._given_name = given_name
-        self._family_name = family_name
-        self.__class__.all_customers.append(self)
-        self._reviews = []
+        self.given_name = given_name
+        self.family_name = family_name
+        Customer.all_customers.append(self)
 
     def given_name(self):
-        return self._given_name
+        return self.given_name
 
     def family_name(self):
-        return self._family_name
+        return self.family_name
 
     def full_name(self):
-        return f"{self._given_name} {self._family_name}"
+        return f"{self.given_name} {self.family_name}"
 
     @classmethod
     def all(cls):
         return cls.all_customers
-
+    
+   
     # Object Relationship Methods
     def add_review(self, restaurant, rating):
         review = Review(self, restaurant, rating)
@@ -53,3 +52,26 @@ class Customer:
         return matching_customers
 
 
+# # Create some customer instances
+# customer1 = Customer("John", "Doe")
+# customer2 = Customer("Jane", "Smith")
+
+# # Get and change the given name and family name
+# print(customer1.given_name)  # Output: John
+# print(customer1.family_name)  # Output: Doe
+# customer1.given_name = "Robert"
+# customer1.family_name = "Johnson"
+# print(customer1.given_name)  # Output: Robert
+# print(customer1.family_name)  # Output: Johnson
+
+# # Get the full name
+# print(customer1.full_name())  # Output: Robert Johnson
+
+# # Get all customer instances
+# all_customers = Customer.all()
+# for customer in all_customers:
+#     print(customer.full_name())
+
+# # Output:
+# # Robert Johnson
+# # Jane Smith
