@@ -1,3 +1,4 @@
+
 class Restaurant:
     def __init__(self, name):
         self._name = name
@@ -21,17 +22,17 @@ class Restaurant:
 
     def customers(self):
         unique_customers = set()
-        for review in self._reviews:
+        for review in self.reviews:
             unique_customers.add(review.customer())
         return list(unique_customers)
 
 
 # Aggregate and Association Methods
     def average_star_rating(self):
-            if len(self._reviews) == 0:
+            if len(self.reviews) == 0:
                 return 0
-            total_ratings = sum(review.rating() for review in self._reviews)
-            return total_ratings / len(self._reviews)
+            total_ratings = sum(review.rating() for review in self.reviews)
+            return total_ratings / len(self.reviews)
     
 # # Example usage:
 # restaurant = Restaurant("Tasty Eats")
